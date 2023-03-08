@@ -13,13 +13,7 @@ impl Analyzer {
        
     }
     
-    // pub fn scan(&mut self) {
-    //     let config = FormatterConfig::default();
-    //     let stdin_fmt = StdinFmt::new(config);
-    //     let outcome = stdin_fmt.format();
-    //     match outcome {
-    //         FormatOutcome::Success(formatted) => println!("{}", formatted),
-    //         FormatOutcome::Error(error) => eprintln!("{}", error),
-    //     }
-    // }
+    pub fn scan(&mut self) {
+        todo!()
+    }
 }   

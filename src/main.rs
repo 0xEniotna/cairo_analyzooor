@@ -18,9 +18,8 @@ fn main() -> Result<()> {
     // config file provided
     Some(config_file) => Config::load_config(&config_file),
     None => {
-        if cli_agrs.file.len() == 0 {
-            // error!("Fuzzer needs a contract path using --contract");
-            eyre!("Analyzooor needs a file path using --file");
+        if cli_agrs.file.is_empty() {
+            return Err(eyre!("Analyzooor needs a file path using --file"));
             // process::exit(1);
         }
 
@@ -33,7 +32,7 @@ fn main() -> Result<()> {
     // create the analyzoooor
     let mut analyzer = Analyzer::new(&config);
 
-    // analyzer.scan();
+    analyzer.scan();
     
     Ok(())
 }
