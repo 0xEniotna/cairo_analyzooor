@@ -1,0 +1,105 @@
+//! > Test unexpected argument types for operators.
+
+//! > test_runner_name
+test_function_diagnostics
+
+//! > function
+fn foo(a: MyType) {
+    a + a * a;
+}
+
+//! > function_name
+foo
+
+//! > module_code
+extern type MyType;
+
+//! > expected_diagnostics
+error: Trait `core::traits::Mul::<test::MyType>` has no implementation in the context.
+ --> lib.cairo:3:9
+    a + a * a;
+        ^***^
+
+error: Trait `core::traits::Add::<test::MyType>` has no implementation in the context.
+ --> lib.cairo:3:5
+    a + a * a;
+    ^*******^
+
+//! > ==========================================================================
+
+//! > Test operators.
+
+//! > test_runner_name
+test_function_diagnostics
+
+//! > function
+fn foo(a: felt, b: bool) implicits(RangeCheck) {
+    // Valid.
+    a + a * a - a;
+    b & b | b & (a == a | a > a)
+    & (a<a) & (a<=a) & (a>=a);
+    // Errors.
+    a>a>a;
+    a - b
+}
+
+//! > function_name
+foo
+
+//! > module_code
+
+//! > expected_diagnostics
+error: Unexpected argument type. Expected: "core::bool", found: "core::felt".
+ --> lib.cairo:7:9
+    a>a>a;
+        ^
+
+error: Unexpected argument type. Expected: "core::felt", found: "core::bool".
+ --> lib.cairo:8:9
+    a - b
+        ^
+
+error: Unexpected return type. Expected: "()", found: "?17".
+ --> lib.cairo:1:48
+fn foo(a: felt, b: bool) implicits(RangeCheck) {
+                                               ^
+
+error: Trait `core::traits::PartialOrd::<core::bool>` has no implementation in the context.
+ --> lib.cairo:7:5
+    a>a>a;
+    ^***^
+
+//! > ==========================================================================
+
+//! > Test unary operators.
+
+//! > test_runner_name
+test_function_diagnostics
+
+//! > function
+fn foo() {
+    -(1 == 2);
+    -1_u8;
+    !17;
+}
+
+//! > function_name
+foo
+
+//! > module_code
+
+//! > expected_diagnostics
+error: Trait `core::traits::Neg::<core::bool>` has no implementation in the context.
+ --> lib.cairo:2:5
+    -(1 == 2);
+    ^*******^
+
+error: Trait `core::traits::Neg::<core::integer::u8>` has no implementation in the context.
+ --> lib.cairo:3:5
+    -1_u8;
+    ^***^
+
+error: Trait `core::traits::Not::<core::felt>` has no implementation in the context.
+ --> lib.cairo:4:5
+    !17;
+    ^*^
