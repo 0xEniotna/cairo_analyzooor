@@ -7,7 +7,8 @@ mod cli;
 use cli::args::Args;
 use cli::config::Config;
 
-// use analyzer::analyzer::Analyzer;
+mod analyzer;
+use analyzer::analyzer::Analyzer;
 
 fn main() -> Result<()> {
     let cli_agrs = Args::parse();
@@ -29,8 +30,8 @@ fn main() -> Result<()> {
     }
     };
     
-    // // create the analyzoooor
-    // let mut analyzer = Analyzer::new(&config);
+    // create the analyzoooor
+    let mut analyzer = Analyzer::new(&config);
 
     // analyzer.scan();
     

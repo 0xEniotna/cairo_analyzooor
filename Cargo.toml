@@ -2,8 +2,10 @@
 name = "slither-sn"
 version = "0.1.0"
 edition = "2021"
-
+repository = "https://github.com/0xEniotna/cairo_analyzooor"
+license-file = "LICENSE"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
 
 [dependencies]
 cairo-felt = "0.1.3"
