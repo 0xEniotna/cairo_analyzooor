@@ -221,7 +221,7 @@ version = "3.2.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ea0c8bce528c4be4da13ea6fead8965e95b6073585a2f05204bd8f4119f82a65"
 dependencies = [
- "heck",
+ "heck 0.4.1",
  "proc-macro-error",
  "proc-macro2",
  "quote",
@@ -234,7 +234,7 @@ version = "4.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "44bec8e5c9d09e439c4335b1af0abaab56dcf3b94999a936e1bb47b9134288f0"
 dependencies = [
- "heck",
+ "heck 0.4.1",
  "proc-macro-error",
  "proc-macro2",
  "quote",
@@ -279,6 +279,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "28d997bd5e24a5928dd43e46dc529867e207907fe0b239c3477d924f7f2ca320"
 dependencies = [
  "libc",
+]
+
+[[package]]
+name = "crossbeam-utils"
+version = "0.8.15"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3c063cd8cc95f5c377ed0d4b49a4b21f632396ff690e8470c29b3359b346984b"
+dependencies = [
+ "cfg-if",
 ]
 
 [[package]]
@@ -371,6 +380,43 @@ dependencies = [
 ]
 
 [[package]]
+name = "execute"
+version = "0.2.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "313431b1c5e3a6ec9b864333defee57d2ddb50de77abab419e4baedb6cdff292"
+dependencies = [
+ "execute-command-macro",
+ "execute-command-tokens",
+ "generic-array",
+]
+
+[[package]]
+name = "execute-command-macro"
+version = "0.1.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a5fbc65a0cf735106743f4c38c9a3671c1e734b5c2c20d21a3c93c696daa3157"
+dependencies = [
+ "execute-command-macro-impl",
+]
+
+[[package]]
+name = "execute-command-macro-impl"
+version = "0.1.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5109f6bc9cd57feda665da326f3f6c57e0498c8fe9f7d12d7b8abc96719ca91b"
+dependencies = [
+ "execute-command-tokens",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "execute-command-tokens"
+version = "0.1.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8ba569491c70ec8471e34aa7e9c0b9e82bb5d2464c0398442d17d3c4af814e5a"
+
+[[package]]
 name = "eyre"
 version = "0.6.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -408,6 +454,15 @@ name = "hashbrown"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8a9ee70c43aaf417c914396645a0fa852624801b24ebb7ae78fe8272889ac888"
+
+[[package]]
+name = "heck"
+version = "0.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6d621efb26863f0e9924c6ac577e8275e5e6b77455db64ffa6c65c904e9e132c"
+dependencies = [
+ "unicode-segmentation",
+]
 
 [[package]]
 name = "heck"
@@ -484,6 +539,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "instant"
+version = "0.1.12"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7a5bbe824c507c5da5956355e86a746d82e0e1464f65d862cc5e71da70e94b2c"
+dependencies = [
+ "cfg-if",
+]
+
+[[package]]
 name = "io-lifetimes"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -556,6 +620,16 @@ name = "linux-raw-sys"
 version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f051f77a7c8e6957c0696eac88f26b0117e54f52d3fc682ab19397a8812846a4"
+
+[[package]]
+name = "lock_api"
+version = "0.4.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "435011366fe56583b16cf956f9df0095b405b82d76425bc8981c0e22e60ec4df"
+dependencies = [
+ "autocfg",
+ "scopeguard",
+]
 
 [[package]]
 name = "log"
@@ -641,6 +715,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b7e5500299e16ebb147ae15a00a942af264cf3688f47923b8fc2cd5858f23ad3"
 
 [[package]]
+name = "oorandom"
+version = "11.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0ab1bc2a289d34bd04a330323ac98a1b4bc82c9d9fcb1e66b63caa84da26b575"
+
+[[package]]
 name = "opaque-debug"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -651,6 +731,31 @@ name = "os_str_bytes"
 version = "6.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9b7820b9daea5457c9f21c69448905d723fbd21136ccf521748f23fd49e723ee"
+
+[[package]]
+name = "parking_lot"
+version = "0.11.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7d17b78036a60663b797adeaee46f5c9dfebb86948d1255007a1d6be0271ff99"
+dependencies = [
+ "instant",
+ "lock_api",
+ "parking_lot_core",
+]
+
+[[package]]
+name = "parking_lot_core"
+version = "0.8.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "60a2cfe6f0ad2bfc16aefa463b497d5c7a5ecd44a23efa72aa342d90177356dc"
+dependencies = [
+ "cfg-if",
+ "instant",
+ "libc",
+ "redox_syscall",
+ "smallvec",
+ "winapi",
+]
 
 [[package]]
 name = "parse-hyperlinks"
@@ -770,6 +875,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "redox_syscall"
+version = "0.2.16"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fb5a58c1855b4b6819d59012155603f0b22ad30cad752600aadfcb695265519a"
+dependencies = [
+ "bitflags",
+]
+
+[[package]]
 name = "rfc6979"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -779,6 +893,12 @@ dependencies = [
  "hmac",
  "zeroize",
 ]
+
+[[package]]
+name = "rustc-hash"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
 
 [[package]]
 name = "rustc_version"
@@ -808,6 +928,41 @@ name = "ryu"
 version = "1.0.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f91339c0467de62360649f8d3e185ca8de4224ff281f66000de5eb2a77a79041"
+
+[[package]]
+name = "salsa"
+version = "0.16.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4b84d9f96071f3f3be0dc818eae3327625d8ebc95b58da37d6850724f31d3403"
+dependencies = [
+ "crossbeam-utils",
+ "indexmap",
+ "lock_api",
+ "log",
+ "oorandom",
+ "parking_lot",
+ "rustc-hash",
+ "salsa-macros",
+ "smallvec",
+]
+
+[[package]]
+name = "salsa-macros"
+version = "0.16.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cd3904a4ba0a9d0211816177fd34b04c7095443f8cdacd11175064fe541c8fe2"
+dependencies = [
+ "heck 0.3.3",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "scopeguard"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d29ab0c6d3fc0ee92fe66e2d99f700eab17a8d57d1c1d3b748380fb20baa78cd"
 
 [[package]]
 name = "semver"
@@ -905,15 +1060,22 @@ dependencies = [
 name = "slither-sn"
 version = "0.1.0"
 dependencies = [
- "cairo-felt",
  "cairo-vm",
  "clap 4.1.8",
+ "execute",
  "eyre",
  "indicatif",
  "log",
+ "salsa",
  "serde",
  "serde_json",
 ]
+
+[[package]]
+name = "smallvec"
+version = "1.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
 
 [[package]]
 name = "starknet-crypto"
@@ -1059,6 +1221,12 @@ name = "unicode-ident"
 version = "1.0.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5464a87b239f13a63a501f2701565754bae92d243d4bb7eb12f6d57d2269bf4"
+
+[[package]]
+name = "unicode-segmentation"
+version = "1.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1dd624098567895118886609431a7c3b8f516e41d30e0643f03d94592a147e36"
 
 [[package]]
 name = "unicode-width"

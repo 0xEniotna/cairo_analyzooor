@@ -1,4 +1,11 @@
-use crate::{cli::config::Config};
+use crate::{
+    cli::config::Config,
+    format::format::{format_file},
+    // formatter::format::{format_file},
+};
+
+use eyre::Result;
+
 
 #[derive(Clone)]
 pub struct Analyzer {
@@ -12,8 +19,8 @@ impl Analyzer {
         }
        
     }
-    
-    pub fn scan(&mut self) {
-        todo!()
+    pub fn scan(&mut self) -> Result<()> {
+        format_file(&self.file)?;
+        Ok(())
     }
 }   
